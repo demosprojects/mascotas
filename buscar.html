@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar - Buscando Mi Mascota</title>
+      <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        title: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                        },
+                        accent: {
+                            500: '#f59e0b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen pb-10">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 h-14 md:h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center text-slate-500 hover:text-brand-500 transition-colors gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                <span class="font-medium text-sm md:text-base">Inicio</span>
+            </a>
+            
+            <a href="publicar.html" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-sm transition-colors">
+                + Publicar
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 mt-6 md:mt-8">
+
+        <!-- Título + Filtros -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-5 md:mb-6">
+            <div>
+                <h2 class="font-title font-bold text-xl md:text-2xl text-slate-900">Mascotas publicadas</h2>
+                <p class="text-slate-500 text-xs md:text-sm mt-0.5 md:mt-1">Filtrá por categoría para encontrar lo que buscás</p>
+            </div>
+            <!-- Filtros -->
+            <div class="flex overflow-x-auto gap-2 snap-x hide-scrollbar sm:overflow-visible sm:flex-wrap">
+                <button data-filtro="todos" class="snap-start shrink-0 bg-slate-800 text-white px-4 py-1.5 md:px-5 md:py-2 rounded-full text-xs md:text-sm font-medium whitespace-nowrap">Todos</button>
+                <button data-filtro="perdido" class="snap-start shrink-0 bg-white border border-slate-200 text-slate-600 px-4 py-1.5 md:px-5 md:py-2 rounded-full text-xs md:text-sm font-medium hover:border-amber-500 hover:text-amber-500 transition-colors whitespace-nowrap">Perdidos</button>
+                <button data-filtro="encontrado" class="snap-start shrink-0 bg-white border border-slate-200 text-slate-600 px-4 py-1.5 md:px-5 md:py-2 rounded-full text-xs md:text-sm font-medium hover:border-teal-500 hover:text-teal-500 transition-colors whitespace-nowrap">Encontrados</button>
+                <button data-filtro="adopcion" class="snap-start shrink-0 bg-white border border-slate-200 text-slate-600 px-4 py-1.5 md:px-5 md:py-2 rounded-full text-xs md:text-sm font-medium hover:border-purple-500 hover:text-purple-500 transition-colors whitespace-nowrap">Adopción</button>
+            </div>
+        </div>
+
+        <!-- Grilla — el JS inyecta las cards acá -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6" id="contenedor-mascotas"></div>
+
+    </main>
+
+    <script type="module" src="cartelera.js"></script>
+</body>
+</html>

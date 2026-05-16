@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscando Mi Mascota</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        title: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                        },
+                        accent: {
+                            500: '#f59e0b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 h-14 md:h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 md:w-6 md:h-6 text-brand-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 5.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm-5.5 2a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm11 0a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm-14 6a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm18 0a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm-6.2 2.3c-.6-.2-1.3-.3-2.3-.3s-1.7.1-2.3.3c-2.1.8-3.5 2.8-3.5 5 0 1.9 1.6 3.5 3.5 3.5h4.6c1.9 0 3.5-1.6 3.5-3.5 0-2.2-1.4-4.2-3.5-5z"/>
+                </svg>
+                <h1 class="font-title font-bold text-base md:text-xl tracking-tight text-slate-900">Buscando Mi Mascota</h1>
+            </div>
+            <!-- Nav desktop -->
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="buscar.html" class="text-slate-600 hover:text-brand-500 font-medium transition-colors">Ver mascotas</a>
+                <a href="publicar.html" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold px-5 py-2 rounded-lg transition-colors">+ Publicar aviso</a>
+            </nav>
+            <!-- Botón publicar mobile -->
+            <a href="publicar.html" class="md:hidden text-brand-500 font-semibold text-sm">+ Publicar</a>
+        </div>
+    </header>
+
+    <main class="flex-grow w-full">
+
+        <!-- Hero Section -->
+        <section class="max-w-7xl mx-auto px-4 py-8 md:py-20">
+            <div class="flex flex-col md:flex-row md:items-center md:gap-16">
+                
+                <!-- Texto del hero -->
+                <div class="flex-1 text-center md:text-left mb-8 md:mb-0">
+                    <span class="inline-block bg-teal-50 text-brand-600 text-xs md:text-sm font-semibold px-3 py-1 rounded-full mb-3 md:mb-4">Plataforma gratuita</span>
+                    <h2 class="font-title text-3xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-3 md:mb-5 leading-tight">
+                        Ayudemos a que <span class="text-brand-500">todos tengan un hogar.</span>
+                    </h2>
+                    <p class="text-slate-500 text-sm md:text-lg mb-6 md:mb-8 max-w-sm mx-auto md:max-w-lg md:mx-0">
+                        Publicá mascotas perdidas, encontradas o en adopción de forma rápida y gratuita para que la comunidad pueda ayudar.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+                        <a href="buscar.html" class="bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-6 md:py-4 md:px-8 rounded-xl shadow-md shadow-brand-500/30 transition-all text-sm md:text-lg flex justify-center items-center gap-2">
+                            <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            Ver mascotas
+                        </a>
+                        <a href="publicar.html" class="bg-white border-2 border-slate-200 hover:border-brand-500 text-slate-700 hover:text-brand-600 font-semibold py-3 px-6 md:py-4 md:px-8 rounded-xl transition-all text-sm md:text-lg flex justify-center items-center gap-2">
+                            <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                            Publicar un aviso
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Info cards — solo visibles en desktop -->
+                <div class="hidden md:grid flex-shrink-0 md:w-80 lg:w-96 grid-cols-2 gap-4">
+                    <div class="bg-amber-50 border border-amber-100 rounded-2xl p-5 text-center">
+                        <div class="flex justify-center mb-2">
+                            <svg class="w-8 h-8 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                            </svg>
+                        </div>
+                        <div class="text-sm font-semibold text-amber-700">Mascotas perdidas</div>
+                        <div class="text-xs text-amber-500 mt-1">Reportá su desaparición</div>
+                    </div>
+                    <div class="bg-teal-50 border border-teal-100 rounded-2xl p-5 text-center">
+                        <div class="flex justify-center mb-2">
+                            <svg class="w-8 h-8 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                            </svg>
+                        </div>
+                        <div class="text-sm font-semibold text-teal-700">Mascotas encontradas</div>
+                        <div class="text-xs text-teal-500 mt-1">Ayudá a reunirlas</div>
+                    </div>
+                    <div class="bg-purple-50 border border-purple-100 rounded-2xl p-5 text-center col-span-2">
+                        <div class="flex justify-center mb-2">
+                            <svg class="w-8 h-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                        </div>
+                        <div class="text-sm font-semibold text-purple-700">Adopción responsable</div>
+                        <div class="text-xs text-purple-500 mt-1">Dale un hogar a quien lo necesita</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Últimos reportes -->
+        <section class="border-t border-slate-200 bg-white">
+            <div class="max-w-7xl mx-auto px-4 py-8 md:py-12">
+                <h3 class="font-title font-bold text-xl md:text-2xl text-slate-800 mb-5 md:mb-8">Últimos reportes</h3>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4 md:gap-6" id="ultimos-avisos">
+                    <p class="text-slate-500 col-span-full text-center py-8">Buscando las últimas publicaciones...</p>
+                </div>
+
+                <!-- Ver todos debajo de la grilla -->
+                <div class="mt-8 text-center">
+                    <a href="buscar.html" class="inline-flex items-center gap-2 text-brand-500 font-semibold hover:text-brand-600 transition-colors">
+                        Ver todas las mascotas
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-5 text-center">
+        <p class="text-slate-400 text-sm">Diseñado y desarrollado por Hostara. Creado para que todos tengan un hogar.</p>
+    </footer>
+
+    <script type="module" src="index.js"></script>
+</body>
+</html>

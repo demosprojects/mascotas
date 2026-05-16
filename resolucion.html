@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolución de Caso - Buscando Mi Mascota</title>
+      <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        title: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: { 500: '#14b8a6', 600: '#0d9488' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen pb-10">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-2xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="buscar.html" class="flex items-center text-slate-500 hover:text-brand-500 transition-colors">
+                <svg class="w-6 h-6 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Volver
+            </a>
+            <h1 class="font-title font-bold text-lg text-slate-900">Avisar resolución</h1>
+            <div class="w-20"></div>
+        </div>
+    </header>
+
+    <main class="max-w-xl mx-auto px-4 mt-8 text-center">
+        
+        <div id="cargando-datos" class="py-10">
+            <p class="text-slate-500">Buscando datos de la publicación...</p>
+        </div>
+
+        <div id="contenedor-resolucion" class="hidden bg-white rounded-2xl shadow-sm border border-slate-100 p-6 sm:p-8 text-left">
+            
+            <h2 class="font-title text-2xl font-bold text-slate-900 mb-2">¡Qué buena noticia!</h2>
+            <p class="text-slate-500 mb-6 text-sm">Ayudanos a mantener actualizada la web confirmando qué pasó con esta publicación.</p>
+
+            <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200 mb-6">
+                <img id="res-foto" src="" alt="Mascota" class="w-16 h-16 object-cover rounded-lg shadow-sm">
+                <div>
+                    <h3 id="res-nombre" class="font-bold text-slate-800 capitalize text-lg leading-tight">Cargando...</h3>
+                    <p id="res-detalle" class="text-sm text-slate-500 capitalize">...</p>
+                </div>
+            </div>
+
+            <form id="formulario-resolucion" class="space-y-5">
+                
+                <div>
+                    <label for="motivo" class="block text-sm font-semibold text-slate-700 mb-2">¿Qué sucedió? *</label>
+                    <select id="motivo" name="motivo" required class="w-full bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-xl focus:ring-brand-500 focus:border-brand-500 block p-3 outline-none">
+                        <option value="volvio_a_casa">Apareció y ya volvió a casa</option>
+                        <option value="fue_adoptado">Fue adoptado por una familia</option>
+                        <option value="error_duplicado">Fue un error o está duplicado</option>
+                        <option value="otro">Otro motivo</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="comentario" class="block text-sm font-semibold text-slate-700 mb-2">Dejanos un comentario <span class="font-normal text-slate-400">(Opcional)</span></label>
+                    <textarea id="comentario" name="comentario" rows="3" placeholder="Contanos algo lindo sobre el reencuentro o la adopción..." class="w-full bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-xl focus:ring-brand-500 focus:border-brand-500 block p-3 outline-none resize-none"></textarea>
+                </div>
+
+                <button type="submit" id="btn-enviar-resolucion" class="w-full text-white bg-brand-500 hover:bg-brand-600 focus:ring-4 focus:outline-none focus:ring-brand-300 font-semibold rounded-xl text-lg px-5 py-3 text-center transition-all shadow-md shadow-brand-500/30 mt-2 flex justify-center items-center gap-2">
+                    Enviar aviso
+                    <svg id="spinner" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                </button>
+            </form>
+        </div>
+
+        <div id="mensaje-exito" class="hidden py-10">
+            <div class="w-16 h-16 bg-brand-100 text-brand-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <h2 class="font-title text-2xl font-bold text-slate-900 mb-2">¡Gracias por avisar!</h2>
+            <p class="text-slate-500 mb-6">En breve actualizaremos la web para que esta publicación deje de mostrarse.</p>
+            <a href="buscar.html" class="inline-block bg-white border border-slate-300 text-slate-700 font-semibold py-2 px-6 rounded-xl hover:bg-slate-50 transition-colors">Regresar</a>
+        </div>
+
+    </main>
+
+    <script type="module" src="resolucion.js"></script>
+</body>
+</html>
